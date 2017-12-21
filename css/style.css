@@ -15,7 +15,7 @@ body {
   height: auto;
   position: absolute;
   left: 0;
-  top: 10%;
+  top: 7%;
   right: 0;
   padding: 2%;
   margin: 0 auto;
@@ -54,9 +54,6 @@ td {
 .hidden {
   visibility: hidden;
 }
-.visible {
-  visibility: visible;
-}
 #bingo {
     background-color: red;
     border: 5px solid #000;
@@ -70,4 +67,12 @@ td {
     text-align: center;
     position: relative;
     top: 296px;
+}
+#player {
+    color: green;
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 21px;
+    text-align: center;
+    margin-top: 20px;
 }
