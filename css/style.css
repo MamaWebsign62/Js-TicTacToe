@@ -40,14 +40,34 @@ td {
   border: 2px solid #000;
 }
 .player1 {
-  background-color: #000;
+  background-color: #545454;
   background-image: url(../img/croix.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 .player2 {
-  background-color: #000;
+  background-color: #545454;
   background-image: url(../img/rond.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+#bingo {
+    background-color: red;
+    border: 5px solid #000;
+    font-family: 'Arial';
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.9;
+    width: 33%;
+    font-size: 24px;
+    padding: 40px 50px;
+    text-align: center;
+    position: relative;
+    top: 296px;
 }

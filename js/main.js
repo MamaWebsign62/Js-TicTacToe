@@ -1,50 +1,64 @@
 // var morpion = new Array(-1, -1, -1, -1, -1, -1, -1, -1, -1);
 var player = 1;
+var table = new Array(9);
+for (var i = 0; i < table.length; i++) {  // i=0; si i est plus petit que la longueur du tableau; i++ agrémente i de 1 à chaque fois
+  table[i] = 0;
+}
 
 
 function play(id){ //J'appelle la fonction play
   if(player == 1){  // Si c'est le joueur 1 qui a cliqué
     document.getElementById(id).classList.add("player1"); //Alors on ajoute la classe pour placer le signe
+    table[id] = player;
+    testVictoire();
     player = 2;  // C'est au tour du joueur 2
-
-  }else if(player == 2){  // Si c'est le joueur 2 qui a cliqué
+  }else if(player == 2){  // Sinon si c'est le joueur 2 qui a cliqué
     document.getElementById(id).classList.add("player2"); //Alors on ajoute la classe pour placer le signe
+    table[id] = player;
+    testVictoire();
     player=1;  // C'est au tour du joueur 1
   }
+  document.getElementById(id).onclick = function() { return false; } // Le clic du joueur 2 ne fonctionnera pas
   document.getElementById('player').innerHTML = 'Joueur '+player; //Affiche dans le HTML quel joueur doit jouer
 }
 
+function testVictoire() { // J'appelle la fonction pour tester la victoire
+var victory = false;
 
-// function placerSigne(idCase)
-// {
-//   if(morpion[idCase] == -1)
-//   {
-//   var image = (toPlayer1) ? 0:1;
-//   document.getElementById(idCase).innerHTML = '<img src="img/croix.png" alt="image" />';
-//   morpion[idCase] = "1";
-//   }
-//   else
-//   {
-//   alert("La case n'est plus disponible, essayez ailleurs !!!");
-//   }
-//
-//   if(toPlayer1 == false)
-//     {
-//     toPlayer1 = true;
-//     }
-//     else
-//     {
-//     toPlayer1 = false;
-//     }
-// }
-// function resetGame()
-// {
-//   for(var i=0;i<9;i++)
-//   {
-//   morpion[i] = "";
-//   }
-// }
-// function reglesJeu()
-// {
-// alert("Voici les règles du morpion Tic Tac Toe : \n Le but du jeu est d'aligner trois croix ou trois rond. Le premier qui réussit à aligner trois de ses signes remporte la manche.\n Il y a autant de manches que vous désirez. Il suffit de réinitialiser la grille à la fin de la manche en cliquant sur le lien ou d'attendre qu'elle se réinitialise toute seule (15 sec)");
-// }
+    if(table[0] == player && table[1] == player && table[2] == player) // Si la case 0 = case 1 = case 2 (pour les les 2 joueurs)
+    {
+      victory = true;
+    } else if(table[0] == player && table[3] == player && table[6] == player)  // Si la case 0 = case 3 = case 6 (pour les les 2 joueurs)
+    {
+      victory = true;
+    } else if(table[0] == player && table[4] == player && table[8] == player) // Si la case 0 = case 4 = case 8 (pour les les 2 joueurs)
+    {
+      victory = true;
+    } else if(table[1] == player && table[4] == player && table[7] == player) // Si la case 1 = case 4 = case 7 (pour les les 2 joueurs)
+    {
+      victory = true;
+    } else if(table[2] == player && table[5] == player && table[8] == player){ // Si la case 2 = case 5 = case 8 (pour les les 2 joueurs)
+      victory = true;
+    } else if(table[3] == player && table[4] == player && table[5] == player){ // Si la case 3 = case 4 = case 5 (pour les les 2 joueurs)
+      victory = true;
+    } else if(table[6] == player && table[7] == player && table[8] == player){ // Si la case 6 = case 7 = case 8 (pour les les 2 joueurs)
+      victory = true;
+    } else if(table[2] == player && table[4] == player && table[6] == player){ // Si la case 2 = case 4 = case 6 (pour les les 2 joueurs)
+      victory = true;
+    }
+
+    if (victory) { // Si on appelle la variable "victory"
+      document.getElementById('bingo').innerHTML = "Félicitations... Le player " + player + " a gagné !!!"; // Rappel de la div #bingo du html vers le js
+      document.getElementById('bingo').classList.add("visible"); // Appel de la class (css) pour rendre la div visible en cas de victoire
+      document.getElementById('bingo').classList.remove("hidden"); // Appel de la class (css) pour cacher la div lorsque l'on clique sur le message
+      document.getElementById('bingo').onclick = function() // Lorsque l'on clique sur le message
+      {
+        document.getElementById('bingo').classList.add("hidden");
+        document.getElementById('bingo').classList.remove("visible");
+      }
+    }
+  }
+  //
+  // function afficheNumberCellule {
+  //
+  // }
