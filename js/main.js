@@ -5,19 +5,25 @@ for (var i = 0; i < table.length; i++) {  // i=0; si i est plus petit que la lon
   table[i] = 0;
 }
 
+var compteTour = 0;
 
 function play(id){ //J'appelle la fonction play
-  console.log(id + " " + player);
+  console.log(id + " " + player); //J'affiche quel joueur joue
+    compteTour++;  // Je compte les tours
   if(player == 1){  // Si c'est le joueur 1 qui a cliqué
     document.getElementById(id).classList.add("player1"); //Alors on ajoute la classe pour placer le signe
     table[id] = player;
-    testVictoire();
+    testVictoire();  // Je teste la victoire
     player = 2;  // C'est au tour du joueur 2
+    console.log(compteTour + " tours ");  // J'affiche le nombre de tours dans la console
+    // compteTour++;
   }else if(player == 2){  // Sinon si c'est le joueur 2 qui a cliqué
     document.getElementById(id).classList.add("player2"); //Alors on ajoute la classe pour placer le signe
     table[id] = player;
     testVictoire();
     player=1;  // C'est au tour du joueur 1
+    console.log(compteTour + " tours ");
+    // compteTour++;
   }
   document.getElementById(id).onclick = function() { return false; } // Le clic du joueur 2 ne fonctionnera pas
   document.getElementById('player').innerHTML = 'C\'est au tour du joueur '+player; //Affiche dans le HTML quel joueur doit jouer
@@ -53,11 +59,22 @@ var victory = false;
     }
 
     if (victory) { // Si on appelle la variable "victory"
+    if (player == 1) {
+      document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/bg-tic-tac-toe.jpg)";
+    }
+    else {
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/theme_noel.jpg)";
+          document.getElementsByTagName('body')[0].style.backgroundSize = "100%";
+    }
+
       document.getElementById('bingo').innerHTML = "Félicitations... Le player " + player + " a gagné !!!"; // Rappel de la div #bingo du html vers le js
       document.getElementById('bingo').classList.remove("hidden"); // J'enlève la class (css) pour afficher la div en cas de victoire
       document.getElementById('bingo').onclick = function() // Lorsque l'on clique sur le message
       {
         document.getElementById('bingo').classList.add("hidden"); // Le message de victoire disparaît lorsqu'on clique dessus
+      }
+      for (var i = 0; i < table.length; i++) { // Si la case est déjà remplie
+        document.getElementById(i).onclick = function() { return false; }; // Le clic de l'autre joueur ne fonctionnera pas
       }
     }
   }

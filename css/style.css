@@ -26,6 +26,7 @@ img {
 }
 h1 {
   text-align: center;
+  color: #007fff;
   margin-bottom: 26px;
   font-family: 'Arial';
 }
@@ -66,7 +67,7 @@ td {
     padding: 40px 50px;
     text-align: center;
     position: relative;
-    top: 296px;
+    top: 254px;
 }
 #player {
     color: green;
