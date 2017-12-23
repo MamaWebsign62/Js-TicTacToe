@@ -9,13 +9,13 @@ body {
 }
 .container {
   background-color: #fff;
-  opacity: 0.8;
+  opacity: 0.6;
   border: 2px solid #000;
   width: 75%;
   height: auto;
   position: absolute;
   left: 0;
-  top: 7%;
+  top: 6%;
   right: 0;
   padding: 2%;
   margin: 0 auto;
