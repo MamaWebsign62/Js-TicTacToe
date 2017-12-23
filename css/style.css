@@ -85,3 +85,15 @@ td {
     position: absolute;
     top: -20px;
 }
+#reset {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial';
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    position: absolute;
+    bottom: 62px;
+    right: 162px;
+}

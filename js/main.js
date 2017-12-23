@@ -65,7 +65,8 @@ function testVictoire() { // J'appelle la fonction pour tester la victoire
         conf[i].style.top = "100%"; // Je spécifie le décalage du bord haut de la marge par rapport au bord haut du body
       }
       if (player == 1) { // Si c'est le joueur 1 qui gagne, on garde le bg image "bg-tic-tac-toe.jpg"
-        document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/bg-tic-tac-toe.jpg)";
+          document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/fireworks.jpg)"; // Si c'est le joueur 1 qui gagne, on appelle le bg image "theme_noel.jpg"
+          document.getElementsByTagName('body')[0].style.backgroundSize = "100%"; // Je règle la taille du bg à 100% pour qu'il s'adapte à la résolution de l'écran
       }
       else { // sinon
           document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/theme_noel.jpg)"; // Si c'est le joueur 2 qui gagne, on appelle le bg image "theme_noel.jpg"
