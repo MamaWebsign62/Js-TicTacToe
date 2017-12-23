@@ -70,6 +70,7 @@ function testVictoire() { // J'appelle la fonction pour tester la victoire
       else { // sinon
           document.getElementsByTagName('body')[0].style.backgroundImage = "url(./img/theme_noel.jpg)"; // Si c'est le joueur 2 qui gagne, on appelle le bg image "theme_noel.jpg"
           document.getElementsByTagName('body')[0].style.backgroundSize = "100%"; // Je règle la taille du bg à 100% pour qu'il s'adapte à la résolution de l'écran
+          document.getElementById('bingo').style.backgroundColor = "Green"; // Je change la couleur du bg d'alerte de victoire pour le joueur 2
         }
       document.getElementById('bingo').innerHTML = "Félicitations... Le player " + player + " a gagné !!!"; // Rappel de la div #bingo du html vers le js
       document.getElementById('bingo').classList.remove("hidden"); // J'enlève la class (css) pour afficher la div en cas de victoire
